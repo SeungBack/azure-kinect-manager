@@ -3,7 +3,7 @@
 - Azure kinect manager for extrinsic calibration, tf management 
 - Clean version of [assembly_camera_manager](https://github.com/gist-ailab/assembly_camera_manager)
 
-![demo](./demo.png)
+<img src="./demo.png" height="300">
 
 ### Getting Started
 
