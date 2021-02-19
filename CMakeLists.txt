@@ -56,8 +56,6 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate services in the 'srv' folder
 add_service_files(
   FILES
-  GetCameraPoseSingleMarker.srv
-  GetCameraPoseMultipleMarker.srv
   GetCameraPoseSingleMarkerBoard.srv
   SetCameraPose.srv
 #   Service2.srv
