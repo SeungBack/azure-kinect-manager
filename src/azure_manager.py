@@ -54,6 +54,8 @@ class AzureManager:
         rospy.loginfo("Starting azure_manager.py for {}".format(self.camera_name))
         while True:
             self.br.sendTransform(self.static_aruco_tfs + self.static_world_tfs)
+            if rospy.is_shutdown():
+                exit()
 
 
     def squeeze_cloud(self, msg):
@@ -112,6 +114,11 @@ class AzureManager:
         source_frame = header_frame_id
         target_frame = "{}_markerboard".format(self.camera_name)
         static_tf_min = orh.pq_to_transform_stamped(pos, quat, source_frame, target_frame)
+
+        # source_frame = "{}_markerboard".format(self.camera_name)
+        # target_frame = header_frame_id
+        # static_tf_min = orh.pq_to_transform_stamped(pos, quat, source_frame, target_frame)
+
         self.static_aruco_tfs.append(static_tf_min)
         rospy.loginfo("Publish static tf: {} -> {}_markerboard from ArUco".format(header_frame_id, self.camera_name))   
 
